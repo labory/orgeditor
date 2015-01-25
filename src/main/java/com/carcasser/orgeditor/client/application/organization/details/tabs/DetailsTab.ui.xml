@@ -1,0 +1,27 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+             xmlns:g="urn:import:com.google.gwt.user.client.ui">
+    <ui:style type="com.carcasser.orgeditor.client.application.organization.details.tabs.DetailsTab.Style">
+        .tab {
+            float: left;
+            margin-right: 8px;
+            padding: 2px 13px;
+        }
+
+        .active {
+            background-color: lightgrey;
+            font-weight: bold;
+        }
+
+        .inactive {
+            background-color: #ffffff;
+            font-weight: bold;
+        }
+
+        .active a, .active a:visited, .active a:hover {
+            text-decoration: none;
+            color: black;
+        }
+    </ui:style>
+    <g:Hyperlink addStyleNames="{style.tab} {style.inactive}" ui:field="hyperlink"/>
+</ui:UiBinder>

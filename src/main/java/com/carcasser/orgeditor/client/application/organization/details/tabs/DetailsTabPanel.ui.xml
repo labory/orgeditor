@@ -1,0 +1,32 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+             xmlns:g="urn:import:com.google.gwt.user.client.ui">
+    <ui:style>
+        .container {
+            padding-top: 100px;
+            background-color: darkgrey;
+            padding: 0 3px 3px;
+        }
+
+        .bar {
+            background-color: darkgrey;
+        }
+
+        .panel {
+            background-color: lightgray;
+            padding: 5px;
+            overflow: hidden;
+            height: 400px;
+        }
+
+    </ui:style>
+    <g:HTMLPanel>
+        <div class="{style.container}">
+            <g:HTMLPanel addStyleNames="{style.bar}">
+                <g:FlowPanel ui:field="tabPanel"/>
+                <div style="clear: both;"/>
+            </g:HTMLPanel>
+            <g:FlowPanel ui:field="tabContentContainer" addStyleNames="{style.panel}"/>
+        </div>
+    </g:HTMLPanel>
+</ui:UiBinder>
