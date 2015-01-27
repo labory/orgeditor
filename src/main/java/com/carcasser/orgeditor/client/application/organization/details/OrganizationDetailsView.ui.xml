@@ -8,11 +8,12 @@
             width: 500px;
             margin-left: auto;
             margin-right: auto;
+            padding-top: 100px;
         }
     </ui:style>
     <g:HTMLPanel styleName="{style.root}">
         <c:DetailsTabPanel ui:field="tabPanel"/>
-        <div>
+        <div style="margin-top: 10px;">
             <g:Button ui:field="back" styleName="btn btn-default" text="{resources.buttonBack}" debugId="back-org-details"/>
         </div>
     </g:HTMLPanel>

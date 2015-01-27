@@ -18,6 +18,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.ImportResource;
+import org.springframework.context.annotation.PropertySource;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -28,6 +29,7 @@ import java.util.logging.Logger;
 @Configuration
 @Import(DefaultModule.class)
 @ComponentScan(basePackages = "com.gwtplatform.dispatch.rpc.server.spring")
+@PropertySource(value="classpath:META-INF/spring/database.properties")
 @ImportResource("classpath*:META-INF/spring/applicationContext.xml")
 public class ServerModule extends HandlerModule {
     public ServerModule() {

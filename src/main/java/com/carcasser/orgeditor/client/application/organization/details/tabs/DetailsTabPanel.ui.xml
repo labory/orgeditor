@@ -2,31 +2,19 @@
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
              xmlns:g="urn:import:com.google.gwt.user.client.ui">
     <ui:style>
-        .container {
-            padding-top: 100px;
-            background-color: darkgrey;
-            padding: 0 3px 3px;
+        .root {
+            border: 1px solid #dddddd;
+            width: 450px;
+            height: 300px;
+            padding: 25px;
+            border-radius: 4px 4px;
+            -webkit-box-shadow: none;
+            box-shadow: none;
         }
-
-        .bar {
-            background-color: darkgrey;
-        }
-
-        .panel {
-            background-color: lightgray;
-            padding: 5px;
-            overflow: hidden;
-            height: 400px;
-        }
-
     </ui:style>
-    <g:HTMLPanel>
-        <div class="{style.container}">
-            <g:HTMLPanel addStyleNames="{style.bar}">
-                <g:FlowPanel ui:field="tabPanel"/>
-                <div style="clear: both;"/>
-            </g:HTMLPanel>
-            <g:FlowPanel ui:field="tabContentContainer" addStyleNames="{style.panel}"/>
-        </div>
+    <g:HTMLPanel styleName="{style.root}">
+        <ul class="nav nav-tabs" ui:field="tabPanel">
+        </ul>
+        <g:FlowPanel ui:field="tabContentContainer"/>
     </g:HTMLPanel>
 </ui:UiBinder>

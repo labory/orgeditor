@@ -12,6 +12,7 @@
         }
         .addOrgAction {
             float: right;
+            margin-bottom: 35px;
         }
         .orgTable {
             width: 100%;
@@ -24,7 +25,7 @@
     </ui:style>
     <g:HTMLPanel>
         <g:HTMLPanel styleName="{style.root}">
-            <g:ListBox addStyleNames='{style.localeBox}' ui:field='localeBox' />
+            <g:ListBox styleName="{style.localeBox}" ui:field='localeBox' />
             <h2>
                 <g:InlineLabel text="{resources.organizationsTitle}"/>:
             </h2>

@@ -1,5 +1,7 @@
 package com.carcasser.orgeditor.client.application.organization.details.tabs;
 
+import com.google.gwt.core.client.GWT;
+import com.google.gwt.dom.client.LIElement;
 import com.google.gwt.resources.client.CssResource;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
@@ -19,9 +21,6 @@ public class DetailsTab extends Composite implements Tab {
     }
 
     protected interface Style extends CssResource {
-        String active();
-
-        String inactive();
     }
 
     @Inject
@@ -38,6 +37,7 @@ public class DetailsTab extends Composite implements Tab {
 
     @UiField
     Hyperlink hyperlink;
+
     @UiField
     Style style;
 
@@ -46,8 +46,7 @@ public class DetailsTab extends Composite implements Tab {
 
     @Override
     public void activate() {
-        removeStyleName(style.inactive());
-        addStyleName(style.active());
+        liElement.addClassName("active");
     }
 
     @Override
@@ -57,8 +56,7 @@ public class DetailsTab extends Composite implements Tab {
 
     @Override
     public void deactivate() {
-        removeStyleName(style.active());
-        addStyleName(style.inactive());
+        liElement.removeClassName("active");
     }
 
     @Override
@@ -87,5 +85,11 @@ public class DetailsTab extends Composite implements Tab {
 
     public boolean canUserAccess() {
         return true;
+    }
+
+    LIElement liElement;
+
+    public void setLiElement(LIElement liElement) {
+        this.liElement = liElement;
     }
 }

@@ -2,6 +2,9 @@ package com.carcasser.orgeditor.client.application.organization.details.tabs;
 
 import com.carcasser.orgeditor.client.place.TokenParameters;
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.dom.client.Document;
+import com.google.gwt.dom.client.LIElement;
+import com.google.gwt.dom.client.UListElement;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Composite;
@@ -39,7 +42,7 @@ public class DetailsTabPanel extends Composite implements TabPanel {
     @UiField
     public FlowPanel tabContentContainer;
     @UiField
-    public FlowPanel tabPanel;
+    public UListElement tabPanel;
 
     private final List<DetailsTab> tabList = new ArrayList<DetailsTab>();
 
@@ -55,7 +58,11 @@ public class DetailsTabPanel extends Composite implements TabPanel {
                 break;
             }
         }
-        tabPanel.insert(newTab.asWidget(), beforeIndex);
+        final LIElement li = Document.get().createLIElement();
+        li.appendChild(newTab.asWidget().getElement());
+        newTab.setLiElement(li);
+
+        tabPanel.insertBefore(li, tabPanel.getChild(beforeIndex));
         tabList.add(beforeIndex, newTab);
         newTab.setTargetHistoryToken(historyToken);
         setTabVisibility(newTab);
@@ -64,14 +71,14 @@ public class DetailsTabPanel extends Composite implements TabPanel {
 
     @Override
     public void removeTab(Tab tab) {
-        tabPanel.getElement().removeChild(tab.asWidget().getElement());
+        tabPanel.removeChild(tab.asWidget().getElement());
         tabList.remove(tab);
     }
 
     @Override
     public void removeTabs() {
         for (Tab tab : tabList) {
-            tabPanel.getElement().removeChild(tab.asWidget().getElement());
+            tabPanel.removeChild(tab.asWidget().getElement());
         }
         tabList.clear();
     }

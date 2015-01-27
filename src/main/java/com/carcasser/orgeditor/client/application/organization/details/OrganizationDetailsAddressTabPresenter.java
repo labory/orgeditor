@@ -2,8 +2,10 @@ package com.carcasser.orgeditor.client.application.organization.details;
 
 import com.carcasser.orgeditor.client.application.organization.details.tabs.DetailsTabData;
 import com.carcasser.orgeditor.client.place.NameTokens;
+import com.carcasser.orgeditor.client.resources.AppMessages;
 import com.carcasser.orgeditor.shared.Organization;
 import com.carcasser.orgeditor.shared.dispatch.OrganizationsResult;
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.inject.Inject;
 import com.google.web.bindery.event.shared.EventBus;
@@ -25,13 +27,13 @@ public class OrganizationDetailsAddressTabPresenter extends Presenter<Organizati
      */
     @ProxyCodeSplit
     @NameToken(NameTokens.DETAILS_ORGS_ADDRESS)
-//    @TabInfo(container = OrganizationDetailsPresenter.class, label = "Address", priority = 0)
     public interface MyProxy extends TabContentProxyPlace<OrganizationDetailsAddressTabPresenter> {
     }
 
     @TabInfo(container = OrganizationDetailsPresenter.class)
     static TabData getTabData() {
-        return new DetailsTabData("Address", 0, NameTokens.DETAILS_ORGS_ADDRESS);
+        AppMessages messages = GWT.create(AppMessages.class);
+        return new DetailsTabData(messages.detailsAddress(), 0, NameTokens.DETAILS_ORGS_ADDRESS);
     }
 
     /**

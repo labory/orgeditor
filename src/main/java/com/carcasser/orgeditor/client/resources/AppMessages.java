@@ -48,4 +48,8 @@ public interface AppMessages extends com.google.gwt.i18n.client.Messages {
     String actionCreateOrg();
 
     String actionEditOrg();
+
+    String detailsAddress();
+
+    String detailsDesc();
 }

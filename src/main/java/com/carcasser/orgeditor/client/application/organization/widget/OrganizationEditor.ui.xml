@@ -1,23 +1,36 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
-<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder" xmlns:g="urn:import:com.google.gwt.user.client.ui">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder" xmlns:g="urn:import:com.google.gwt.user.client.ui"
+             xmlns:e="urn:import:com.google.gwt.editor.ui.client">
     <ui:with field="resources" type="com.carcasser.orgeditor.client.resources.AppMessages"/>
     <ui:style>
-        .row {
-            margin-left: 20px;
+        .error {
+            color: red;
         }
     </ui:style>
     <g:HTMLPanel>
         <div class="form-group">
             <g:InlineLabel text="{resources.editorOrgName}"/>:
-            <g:TextBox styleName="form-control" ui:field="name" debugId="org-name-input"/>
+            <e:ValueBoxEditorDecorator ui:field="name" styleName="{style.error}" debugId="org-name-input">
+                <e:valuebox>
+                    <g:TextBox styleName="form-control"/>
+                </e:valuebox>
+            </e:ValueBoxEditorDecorator>
         </div>
         <div class="form-group">
             <g:InlineLabel text="{resources.editorOrgAddress}"/>:
-            <g:TextBox styleName="form-control" ui:field="address" debugId="org-address-input"/>
+            <e:ValueBoxEditorDecorator ui:field="address" styleName="{style.error}" debugId="org-address-input">
+                <e:valuebox>
+                    <g:TextBox styleName="form-control"/>
+                </e:valuebox>
+            </e:ValueBoxEditorDecorator>
         </div>
         <div class="form-group">
             <g:InlineLabel text="{resources.editorOrgDesc}"/>:
-            <g:TextBox styleName="form-control" ui:field="description" debugId="org-desc-input"/>
+            <e:ValueBoxEditorDecorator ui:field="description" styleName="{style.error}" debugId="org-desc-input">
+                <e:valuebox>
+                    <g:TextBox styleName="form-control"/>
+                </e:valuebox>
+            </e:ValueBoxEditorDecorator>
         </div>
     </g:HTMLPanel>
 </ui:UiBinder>

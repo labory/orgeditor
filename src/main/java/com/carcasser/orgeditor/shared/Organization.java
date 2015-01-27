@@ -8,6 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /**
  * Organization.
@@ -19,8 +21,17 @@ public class Organization implements IsSerializable {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
+
+    @NotNull
+    @Size(min = 2, max = 20)
     private String name;
+
+    @NotNull
+    @Size(min = 2, max = 20)
     private String address;
+
+    @NotNull
+    @Size(min = 2, max = 20)
     private String description;
 
     public Organization() {

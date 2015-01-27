@@ -1,6 +1,5 @@
 package com.carcasser.orgeditor.client.application;
 
-import com.carcasser.orgeditor.client.application.organization.OrganizationPresenter;
 import com.carcasser.orgeditor.client.place.NameTokens;
 import com.carcasser.orgeditor.client.place.TokenParameters;
 import com.carcasser.orgeditor.shared.Organization;
@@ -28,8 +27,6 @@ import java.util.List;
  */
 public class OrganizationsPresenter extends Presenter<OrganizationsPresenter.MyView, OrganizationsPresenter.MyProxy>
         implements OrganizationsUiHandlers {
-
-    private OrganizationPresenter organizationPresenter;
 
     public void onCreate() {
         placeManager.revealPlace(new Builder().nameToken(NameTokens.EDIT_ORGS).build());
@@ -86,13 +83,11 @@ public class OrganizationsPresenter extends Presenter<OrganizationsPresenter.MyV
                           MyView view,
                           MyProxy proxy,
                           PlaceManager placeManager,
-                          DispatchAsync dispatcher,
-                          OrganizationPresenter organizationPresenter) {
+                          DispatchAsync dispatcher) {
         super(eventBus, view, proxy, RevealType.Root);
 
         this.placeManager = placeManager;
         this.dispatcher = dispatcher;
-        this.organizationPresenter = organizationPresenter;
 
         getView().setUiHandlers(this);
     }

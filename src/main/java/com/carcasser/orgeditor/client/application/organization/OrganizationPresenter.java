@@ -87,7 +87,6 @@ public class OrganizationPresenter extends Presenter<OrganizationPresenter.MyVie
 
     public void prepareFromRequest(PlaceRequest request) {
         String orgName = request.getParameter("name", null);
-        //boolean createNew = Strings.isNullOrEmpty(orgName);
         boolean createNew = orgName == null;
 
         if (!createNew) {

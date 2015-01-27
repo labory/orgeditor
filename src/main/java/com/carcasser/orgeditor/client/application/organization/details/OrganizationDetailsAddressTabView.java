@@ -1,9 +1,9 @@
 package com.carcasser.orgeditor.client.application.organization.details;
 
 import com.carcasser.orgeditor.shared.Organization;
+import com.google.gwt.dom.client.HeadingElement;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
-import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.inject.Inject;
 import com.gwtplatform.mvp.client.ViewImpl;
@@ -17,7 +17,7 @@ public class OrganizationDetailsAddressTabView extends ViewImpl implements Organ
     }
 
     @UiField
-    Label address;
+    HeadingElement address;
 
     @Inject
     OrganizationDetailsAddressTabView(Binder uiBinder) {
@@ -25,7 +25,7 @@ public class OrganizationDetailsAddressTabView extends ViewImpl implements Organ
     }
 
     public void setOrganization(Organization organization) {
-        address.setText(organization.getAddress());
+        address.setInnerText(organization.getAddress());
     }
 
 }

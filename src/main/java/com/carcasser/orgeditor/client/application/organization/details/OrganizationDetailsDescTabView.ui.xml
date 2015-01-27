@@ -9,6 +9,6 @@
         }
     </ui:style>
     <g:HTMLPanel styleName="{style.root}">
-        <g:Label ui:field="description"/>
+        <h2 ui:field="description"/>
     </g:HTMLPanel>
 </ui:UiBinder>
